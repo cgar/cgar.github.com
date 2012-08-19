@@ -184,7 +184,7 @@ body {
   background-color: #ffffff;
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: normal;
   line-height: 18px;
   color: #404040;
@@ -390,7 +390,7 @@ a:hover {
  * Headings, body text, lists, code, and more for a versatile and durable typography system
  * ---------------------------------------------------------------------------------------- */
 p {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: normal;
   line-height: 18px;
   margin-bottom: 9px;
