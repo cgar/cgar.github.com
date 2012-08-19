@@ -184,9 +184,9 @@ body {
   background-color: #ffffff;
   margin: 0;
   font-family: "sans-serif; <!-- "Helvetica Neue", Helvetica, Arial, sans-serif; -->
-  font-size: 16px;
+  font-size: 100%; <!-- 16px; -->
   font-weight: normal;
-  line-height: 18px;
+  line-height: 1.5; <!-- 18px; -->
   color: #404040;
 }
 .container {
@@ -390,9 +390,9 @@ a:hover {
  * Headings, body text, lists, code, and more for a versatile and durable typography system
  * ---------------------------------------------------------------------------------------- */
 p {
-  font-size: 16px;
+  font-size: 100%; <!-- 16px; -->
   font-weight: normal;
-  line-height: 18px;
+  line-height: 1.5; <!-- 18px; -->
   margin-bottom: 9px;
 }
 p small {
