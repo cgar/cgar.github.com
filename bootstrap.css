@@ -473,7 +473,7 @@ ol {
   list-style: decimal;
 }
 li {
-  line-height: 18px;
+  line-height: 1.5; <!-- 18px; -->
   color: #808080;
 }
 ul.unstyled {
