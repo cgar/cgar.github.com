@@ -1,0 +1,33 @@
+---
+layout: layout
+title: Carlos E. Garcia
+---
+
+<div id="home">
+  <h1>Blog Posts</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <h1>Links of Interest</h1>
+  <ul class="posts">
+      <li><span>22 Aug 2012</span> &raquo; <a href="http://blog.spiderlabs.com/2012/08/all-your-password-hints-are-belong-to-us.html">All Your Password Hints Are Belong to Us</a></li>
+  </ul>
+
+  <h1>Videos of Interest</h1>
+  <ul class="posts">
+     <li><span>24 Aug 2012</span> &raquo; <a href="http://vimeo.com/48177666">GTVHacker - Hacking the  GoogleTV</a></li>
+     <li><span>21 Aug 2012</span> &raquo; <a href="https://www.youtube.com/watch?v=5cWck_xcH64">Defcon 20 - Dan Tentler - Drinking from the caffeine firehose we know as shodan</a></li>
+
+     
+ </ul>
+
+  <h1>Random Comic</h1>
+  <ul class="posts">
+      <li><img src="http://imgs.xkcd.com/comics/python.png" title="I wrote 20 short programs in Python yesterday.  It was wonderful.  Perl, I&#39;m leaving you." alt="Python" />
+  </ul>
+
+  </ul>
+</div>
