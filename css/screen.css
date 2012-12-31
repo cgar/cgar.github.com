@@ -18,7 +18,7 @@ html, body {
 body {
   background-color: white;
   /* font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;  */
-  font: 14px 'Droid Sans', sans-serif;
+  font: 16px 'Droid Sans', sans-serif;
   *font-size: 100%; /* small; */
   text-align: center;
 }
