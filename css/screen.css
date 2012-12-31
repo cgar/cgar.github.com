@@ -17,7 +17,7 @@ html, body {
 
 body {
   background-color: white;
-  font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif; 
                 /* 13.34px helvetica, arial, clean, sans-serif; */
   *font-size: 100%; /* small; */
   text-align: center;
