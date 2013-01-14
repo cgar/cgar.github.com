@@ -39,6 +39,10 @@ a:hover {
   color: #00438a;
 }
 
+a:visited {
+    color: #00438a;
+}    
+
 table {
   font-size: inherit;
   font: 100%;
