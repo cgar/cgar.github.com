@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Full Disk Encryption In FreeBSD 9.1</title>
+    <link rel="stylesheet" href="/css/screen.css" />
+    <link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body>
+
+<div class="site">
+
+<div class="title">
+    <a href="/">Carlos E. Garcia</a>
+    <a class="extra" href="/">home</a>
+    <a class="extra" href="/colophon.html">colophon</a>
+</div>
+
+<div id="post">
+    <p> Full Disk Encryption In FreeBSD 9.1 </p>
+    <p class="meta">24 Jan 2013</p>
+    <p> Introduction </p>
+    <p> <a href="http://www.freebsd.org/releases/9.1R/announce.html">Release notes</a href>
+
+        Handbook
+        Wiki
+        Comments
+
+    <p> Procedure </p>
+    <p> <a href="http://www.freebsd.org/releases/9.1R/announce.html">Download</a href> and <a href="http://http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/bsdinstall-pre.html">prepare the installation media</a href>, then boot into it. The next few steps are really straight forward and the handbook does a pretty good job explaining its options. Select "Install", choose your keyboard layout, then type in your hostname; <strong>pcname.localhost.home</strong> or something resembling that manner. Then choose the optional system components as you wish, the default options are fine. Finally, when it comes to the "Disk Paritioning", choose "Shell".
+    </p>
+    <p> Paritioning </p>
+    <blockquote>
+        <p> gpart show </p>
+        <p> gpart destroy -F ada0 </p>
+        <p> gpart create -s gpt ada0 </p>
+
+</div>    
+
+<div class="footer">
+    <div class="contact">
+        <p>
+        <a href="/">Home</a> &nbsp;
+        <a href="/colophon.html">Colophon</a> &nbsp;
+        <a href="mailto:hello@cgarcia.org">Email</a>
+        </p>
+    </div>
+</div>    
+</div>
+</body>
+</html>  
