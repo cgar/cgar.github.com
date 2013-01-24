@@ -20,11 +20,11 @@
     <p> <strong>Full Disk Encryption In FreeBSD 9.1</strong> </p>
     <p class="meta">24 Jan 2013</p>
     <p> Introduction </p>
-    <p> Ever since FreeBSD 9.1 came out late last year I wanted to try it out in an environment other than a server. Having never used it before as such, it seemed like the right time. We'll be using <a href="https://en.wikipedia.org/wiki/Geli_%28software%29">GELI</a href> as the encryption, <a href="https://en.wikipedia.org/wiki/Unix_File_System">UFS</a href> and as the filesystem, all inside a 64GB <abbr title="Solid-state drive">SSD</abbr>. Please note that when I say full disk encryption it means everything but the <u>/boot</u> partition. For this article and in my case you'll be using the <strong>/dev/ada0</strong> disk. Two paritions; a 10G /boot and the rest of the disk as <strong>/</strong>. Why no swap you ask? I've got enough RAM to not need any, top that with using a <abbr title="Solid-state drive">SSD</abbr> and it is not required.</p>
-    <p> Take a look at the <a href="http://www.freebsd.org/releases/9.1R/announce.html">Release notes</a href>, <a href="http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/">Handbook</a href>, <a href="https://wiki.freebsd.org/">Wiki</a href>, and <a href="http://forums.freebsd.org/">Forums</a href> for more information regarding FreeBSD. </p>
+    <p> Ever since FreeBSD 9.1 came out late last year I wanted to try it out in an environment other than a server. Having never used it before as such, it seemed like the right time. We'll be using <a href="https://en.wikipedia.org/wiki/Geli_%28software%29">GELI</a href> as the encryption, <a href="https://en.wikipedia.org/wiki/Unix_File_System">UFS</a href> and as the filesystem, all inside a 64GB <abbr title="Solid-state drive">SSD</abbr>. Please note that when I say full disk encryption it means everything but the <em>/boot</em> partition. For this article and in my case you'll be using the <strong>/dev/ada0</strong> disk. Two paritions; a 10G /boot and the rest of the disk as <strong>/</strong>. Why no swap you ask? I've got enough RAM to not need any, top that with using a <abbr title="Solid-state drive">SSD</abbr> and it is not required.</p>
+            <p> Take a look at the <a href="http://www.freebsd.org/releases/9.1R/announce.html">Release notes</a href>, <a href="http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/">Handbook</a href>, <a href="https://wiki.freebsd.org/">Wiki</a href>, and <a href="http://forums.freebsd.org/">Forums</a href> for more information regarding FreeBSD. I also suggest taking a look at the following man pages (<a href="http://www.freebsd.org/cgi/man.cgi?query=tunefs&apropos=0&sektion=0&manpath=FreeBSD+9.0-RELEASE&arch=default&format=ascii">tunefs</a href>, <a href="http://www.freebsd.org/cgi/man.cgi?query=newfs&apropos=0&sektion=0&manpath=FreeBSD+9.0-RELEASE&arch=default&format=ascii">newfs</a href>, <a href="http://www.freebsd.org/cgi/man.cgi?query=geli&apropos=0&sektion=0&manpath=FreeBSD+9.0-RELEASE&arch=default&format=ascii">geli</a href>)for the commands we'll be using, just in case there is something extra your system/setup requires.</p>
 
     <p> Procedure </p>
-    <p> <a href="http://www.freebsd.org/releases/9.1R/announce.html">Download</a href>, <a href="http://http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/bsdinstall-pre.html">prepare the installation media</a href>, then boot into it. The next few steps are really straight forward and the handbook does a pretty good job explaining its options. Select "Install", choose your keyboard layout, then type in your hostname; <strong>pcname.localhost.home</strong> or something resembling that format. Choose the optional system components as you wish, the default options are fine. Finally, when it comes to the "Partitioning", select "Shell".
+    <p> <a href="http://www.freebsd.org/releases/9.1R/announce.html">Download</a href>, <a href="http://http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/bsdinstall-pre.html">prepare the installation media</a href>, then boot into it. The next few steps are really straight forward and the handbook does a pretty good job explaining its options. Select "Install", choose your keyboard layout, then type in your hostname; <em>pcname.localhost.home</em> or something resembling that format. Choose the optional system components as you wish, the default options are fine. Finally, when it comes to the "Partitioning", select "Shell".
     </p>
     <p> Partitioning </p>
     <blockquote>
@@ -38,29 +38,29 @@
          # gpart add -t freebsd-ufs ada0 <br />
          # gpart bootcode -b /boot/pmbr -p /boot/gptboot -i 1 ada0 <br />
          # newfs -E -t -U -m 0 -j /dev/ada0p2 <br />
-         <em><small>-E (SSD only) -t enable trim for SSD</small></em> <br />
+         <em><small>-E (SSD only) -t (enables <a href="https://en.wikipedia.org/wiki/TRIM">trim</a href> for SSD)</small></em> <br />
          # geli init -bl 256 /dev/ada0p3    set your password <br />
          # geli attach /dev/ada0p3 <br />
          # newfs -E -t -U -m 0 -j /dev/ada0p3.eli <br />
-         <em><small>-E (SSD only) -t enable trim for SSD</small></em> <br />
+         <em><small>-E (SSD only) -t (enables <a href="https://en.wikipedia.org/wiki/TRIM">trim</a href> for SSD)</small></em> <br />
          # mount /dev/ada0p3.eli /mnt <br />
          # mkdir /mnt/bootdir <br />
          # mount /dev/ada0p2 /mnt/bootdir <br />
          # exit <br />
         </p>
     </blockquote>
-    <p> Most of the hard part is done with, now we just wait for bsdinstall to extract and install the base, kernel, ports, etc. After this step, you will be asked for a root password, network configuration and extra users. On the "Final Configuration" window, select "Exit" and wait for the next screen, it make take a while depending on your system specifications but nothing to worry about. Select "Yes" on "Manual Configuration". The following few steps are very important, we want to make sure the /boot partition is linked to the right place and the configuration files to be right. </p>
+    <p> Most of the hard part is done with, now we just wait for bsdinstall to extract and install the base, kernel, ports, etc. After this step, you will be asked for a root password, network configuration and user account addition. On the "Final Configuration" window, select "Exit" and wait for the next screen, it make take a while depending on your system specifications. Select "Yes" on "Manual Configuration". The following few steps are very important, we want to make sure the /boot partition is linked to the right place and the configuration files to be right. </p>
     <blockquote>
         <p>
         # mv boot bootdir/ <br />
         # ln -fs bootdir/boot <br />
         </p>
     </blockquote>
-    <p> Edit the file "/boot/loader.conf" and enter the following: </p>
+    <p> Edit the file "/boot/loader.conf" and enter the following, please make sure to find out if your processor supports <abbr title="Advanced Encryption Standard (AES) Instruction Set">AES-NI</abbr>. Most newer Intel and AMD processors support this. If yours do not, remove the line below. </p>
     <blockquote>
         <p>
         vfs.root.mountfrom=”ufs:/dev/ada0p3.eli” <br />
-        aesni_load=”YES”    # most newer processors come with this option <br />
+        aesni_load=”YES” <br />
         geom_eli_load=”YES” <br />
         </p>
     </blockquote>
@@ -78,7 +78,13 @@
          # exit
          </p>
     </blockquote>
-    <p> And select "Reboot". Make sure to boot from your hard drive instead of the install media.     
+    <p> Select "Reboot". Make sure to boot from your hard drive instead of the install media. And we are finished, after you log into your system type the following to make sure that trim is enabled. Although FreeBSD is not installed, there is much to be done, including the installation of Xorg, your favorite <abbr title="Desktop Environment">DE</abbr>, <abbr title="Window Manager">WM</abbr>, or office suite. For those question, the FreeBSD handbook and forums is the place to go.</p>
+    <blockquote>
+        <p>
+        # tunefs -p /dev/ada0p2 <br />
+        # tunefs -p /dev/ada0p3 <br />
+        </p>
+    </blockquote>
 
 </div>    
 
