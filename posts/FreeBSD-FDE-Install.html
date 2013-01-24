@@ -17,7 +17,7 @@
 </div>
 
 <div id="post">
-    <p> Full Disk Encryption In FreeBSD 9.1 </p>
+    <p> <title2>Full Disk Encryption In FreeBSD 9.1</title2> </p>
     <p class="meta">24 Jan 2013</p>
     <p> Introduction </p>
     <p> Ever since FreeBSD 9.1 came out late last year I wanted to try it out in an environment other than a server. Having never used it before as such, it seemed like the right time. We'll be using <a href="https://en.wikipedia.org/wiki/Geli_%28software%29">GELI</a href> as the encryption, <a href="https://en.wikipedia.org/wiki/Unix_File_System">UFS</a href> and as the filesystem, all inside a 64GB <abbr title="Solid-state drive">SSD</abbr>. Please note that when I say full disk encryption it means everything but the <strong>/boot</strong> partition. For this article and in my case you'll be using the <strong>/dev/ada0</strong> disk. Two paritions; a 10G /boot and the rest of the disk as <strong>/</strong>. Why no swap you ask? I've got enough RAM to not need any, top that with using a <abbr title="Solid-state drive">SSD</abbr> and it is not required.</p>
