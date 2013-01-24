@@ -183,3 +183,8 @@ ul.posts {
     white-space: pre-wrap;
     word-wrap: break-word;
     }
+
+#post blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }    
