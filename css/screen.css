@@ -185,6 +185,7 @@ ul.posts {
     }
 
 #post blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
+      padding: 0 0 0 15px;
+      margin: 0 0 20px;
+      border-left: 5px solid #eeeeee;
   }    
