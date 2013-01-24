@@ -189,3 +189,7 @@ ul.posts {
       margin: 0 0 20px;
       border-left: 5px solid #eeeeee;
   }    
+
+#post small {
+      font-size: 85%;
+  }  
