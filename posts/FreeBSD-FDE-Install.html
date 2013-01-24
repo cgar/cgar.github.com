@@ -27,13 +27,14 @@
         Comments
 
     <p> Procedure </p>
-    <p> <a href="http://www.freebsd.org/releases/9.1R/announce.html">Download</a href> and <a href="http://http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/bsdinstall-pre.html">prepare the installation media</a href>, then boot into it. The next few steps are really straight forward and the handbook does a pretty good job explaining its options. Select "Install", choose your keyboard layout, then type in your hostname; <strong>pcname.localhost.home</strong> or something resembling that manner. Then choose the optional system components as you wish, the default options are fine. Finally, when it comes to the "Disk Paritioning", choose "Shell".
+    <p> <a href="http://www.freebsd.org/releases/9.1R/announce.html">Download</a href>, <a href="http://http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/bsdinstall-pre.html">prepare the installation media</a href>, then boot into it. The next few steps are really straight forward and the handbook does a pretty good job explaining its options. Select "Install", choose your keyboard layout, then type in your hostname; <strong>pcname.localhost.home</strong> or something resembling that manner. Then choose the optional system components as you wish, the default options are fine. Finally, when it comes to the "Disk Paritioning", choose "Shell".
     </p>
     <p> Paritioning </p>
     <blockquote>
         <p> gpart show </p>
         <p> gpart destroy -F ada0 </p>
         <p> gpart create -s gpt ada0 </p>
+    <blockquote</>
 
 </div>    
 
