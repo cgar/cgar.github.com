@@ -21,20 +21,63 @@
     <p class="meta">24 Jan 2013</p>
     <p> Introduction </p>
     <p> <a href="http://www.freebsd.org/releases/9.1R/announce.html">Release notes</a href>
-
-        Handbook
-        Wiki
-        Comments
+        Handbook, Wiki, "#" means root access.
 
     <p> Procedure </p>
     <p> <a href="http://www.freebsd.org/releases/9.1R/announce.html">Download</a href>, <a href="http://http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/bsdinstall-pre.html">prepare the installation media</a href>, then boot into it. The next few steps are really straight forward and the handbook does a pretty good job explaining its options. Select "Install", choose your keyboard layout, then type in your hostname; <strong>pcname.localhost.home</strong> or something resembling that manner. Then choose the optional system components as you wish, the default options are fine. Finally, when it comes to the "Disk Paritioning", choose "Shell".
     </p>
     <p> Paritioning </p>
     <blockquote>
-        <p> gpart show </p>
-        <p> gpart destroy -F ada0 </p>
-        <p> gpart create -s gpt ada0 </p>
+        <p>
+         # gpart show <br />
+         # gpart destroy -F ada0 <br />
+         # gpart create -s gpt ada0 <br />
+         # gpart create -s gpt ada0
+         # gpart add -s 128 -t freebsd-boot ada0
+         # gpart add -s 10G -t freebsd-ufs ada0
+         # gpart add -s 4G -t freebsd-swap ada0
+         # gpart add -t freebsd-ufs ada0
+         # gpart bootcode -b /boot/pmbr -p /boot/gptboot -i 1 ada0
+         # newfs -E -t -U -m 0 -j /dev/ada0p2 (-E (ssd only) -t to enable trim for SSD)
+         # geli init -bl 256 /dev/ada0p3    set your password
+         # geli attach /dev/ada0p3
+         # newfs -E -t -U -m 0 -j /dev/ada0p3.eli (-E (ssd only) -t to enable trim for SSD)
+         # mount /dev/ada0p3.eli /mnt
+         # mkdir /mnt/bootdir
+         # mount /dev/ada0p2 /mnt/bootdir
+         # exit
+        </p>
     </blockquote>
+    <p> Most of the hard part is done with, now we just wait for bsdinstall to extract and install the base, kernel, ports, etc. After this step, you will be asked for a root password, network configuration and extra users. On the "Final Configuration" window, select "Exit" and wait for the next screen, it make take a while depending on your system specifications but nothing to worry about. Select "Yes" on "Manual Configuration". The following few steps are very important, we want to make sure the /boot partition is linked to the right place and the configuration files to be right. </p>
+    <blockquote>
+        <p>
+        # mv boot bootdir/ <br />
+        # ln -fs bootdir/boot <br />
+        </p>
+    </blockquote>
+    <p> Edit the file "/boot/loader.conf" and enter the following: </p>
+    <blockquote>
+        <p>
+        vfs.root.mountfrom=”ufs:/dev/ada0p3.eli”
+        aesni_load=”YES”    # most newer processors come with this option
+        geom_eli_load=”YES”
+        </p>
+    </blockquote>
+    <p> Edit the file "/etc/fstab" and enter the following: </p>
+    <blockquote>
+        <p>
+        # Device          Mountpoint FStype Options Dump Pass <br />
+        /dev/ada0p3.eli   /          ufs    rw      0    0  <br />
+        /dev/ada0p2       /bootdir   ufs    rw      1    1  <br />
+        </p>
+    </blockquote>
+    <p> After you save the above file and exit, type in the command line:
+    <blockquote>
+         <p> 
+         # exit
+         </p>
+    </blockquote>
+    <p> And select "Reboot". Make sure to boot from your hard drive instead of the install media.     
 
 </div>    
 
