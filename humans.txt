@@ -6,7 +6,7 @@
 
 /* SITE */
 
-    Last update: 2013/01/09
+    Last update: 2013/01/30
     Language: English
     Doctype: HTML5
     Software: NGINX, OpenSSH, Vim
