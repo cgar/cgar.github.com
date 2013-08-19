@@ -22,7 +22,6 @@ Partitioning
     # gpart show   
     # gpart destroy -F ada0   
     # gpart create -s gpt ada0   
-    # gpart create -s gpt ada0   
     # gpart add -s 128 -t freebsd-boot ada0   
     # gpart add -s 10G -t freebsd-ufs ada0   
     # gpart add -t freebsd-ufs ada0   
