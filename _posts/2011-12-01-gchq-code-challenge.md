@@ -8,10 +8,12 @@ title: GCHQ Code Challenge
 <p class="meta">01 Dec 2011</p>
 
 As reported by [The BBC:](http://www.bbc.co.uk/news/technology-15968878)
+
     UK intelligence agency GCHQ has launched a code-cracking competition to help attract  new talent. The organisation has invited potential applicants to solve a visual code posted at an unbranded standalone website. The challenge has also been "seeded" to social media sites, blogs and forums. A spokesman said the campaign aimed to raise the profile of GCHQ to an audience that would otherwise be difficult to reach.
 
 
 The contender: [_Can you crack it?](http://canyoucrackit.co.uk/)
+
     eb 04 af c2 bf a3 81 ec     00 01 00 00 31 c9 88 Oc 
     Oc fe c1 75 f9 31 c0 be     ef be ad de 02 04 Oc 00 
     dO c1 ca 08 8a 1c Oc 8a     3c 04 88 1c 04 88 3c Oc 
@@ -24,6 +26,7 @@ The contender: [_Can you crack it?](http://canyoucrackit.co.uk/)
     d8 fe CO cd 80 90 90 e8     9d ff ff Of 41 41 41 41
 
 [Link to Part 2 of 3](http://www.canyoucrackit.co.uk/15b436de1f9107f3778aad525e5d0b20.js)
+
     //--------------------------------------------------------------------------------------------------
     //
     // stage 2 of 3
@@ -184,6 +187,7 @@ The contender: [_Can you crack it?](http://canyoucrackit.co.uk/)
     //--------------------------------------------------------------------------------------------------
 
 And the result is: [So You Did It!](http://www.canyoucrackit.co.uk/soyoudidit.asp)
+
     Ref CYBER/SEC/SPEC/11 PHASE 2
     Region  South West
     Location Cheltenham
