@@ -46,7 +46,7 @@ Edit the file "/boot/loader.conf" and enter the following, please make sure to f
 
     vfs.root.mountfrom=”ufs:/dev/ada0p3.eli”   
     aesni_load=”YES”   
-    geom\_eli\_load=”YES”   
+    geom_eli_load=”YES”   
 
 
 Edit the file "/etc/fstab" and enter the following: 
