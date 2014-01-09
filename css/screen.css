@@ -11,8 +11,10 @@ html, body {
 
 body {
   background-color: white;
-  font: 14.5px "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  /* font: 14.5px "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  font-family: "Open Sans", sans-serif;
   text-align: center;
+  font-size: 14.5px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -61,7 +63,8 @@ ul.posts {
 
   ul.posts span {
     color: #aaa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+    font-family: "Open Sans", sans-serif;
     font-size: 85%;
   }
 
