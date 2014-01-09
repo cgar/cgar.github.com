@@ -1,12 +1,12 @@
 /* TEAM */
 
     Chef: Carlos E. Garcia
-    Contact: hello [at] cgarcia.org
+    Contact: carlos [at] cgarcia.org
     Location: United States
 
 /* SITE */
 
-    Last update: 2013/12/14
+    Last update: 2014/01/09
     Language: English
     Doctype: HTML5
-    Software: OpenSSH, Vim
+    Software: OpenSSH, Vim, Jekyll
