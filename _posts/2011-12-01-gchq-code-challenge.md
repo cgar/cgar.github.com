@@ -14,15 +14,15 @@ As reported by [The BBC:](http://www.bbc.co.uk/news/technology-15968878)
 
 The contender: [_Can you crack it?](http://canyoucrackit.co.uk/)
 
-    eb 04 af c2 bf a3 81 ec     00 01 00 00 31 c9 88 Oc 
-    Oc fe c1 75 f9 31 c0 be     ef be ad de 02 04 Oc 00 
-    dO c1 ca 08 8a 1c Oc 8a     3c 04 88 1c 04 88 3c Oc 
-    fe c1 75 e8 e9 5c 00 00     00 89 e3 81 c3 04 00 00 
-    00 5c 58 3d 41 41 41 41     75 43 58 3d 42 42 42 42 
-    75 3b 5a 89 d1 89 e6 89     df 29 cf f3 a4 89 de 89 
-    d1 89 df 29 cf 31 c0 31     db 31 d2 fe c0 02 1c 06 
-    8a 14 06 8a 34 1e 88 34     06 88 14 1e 00 f2 30 f6 
-    8a 1c 16 8a 17 30 da 88     17 47 49 75 de 31 db 89 
+    eb 04 af c2 bf a3 81 ec     00 01 00 00 31 c9 88 Oc
+    Oc fe c1 75 f9 31 c0 be     ef be ad de 02 04 Oc 00
+    dO c1 ca 08 8a 1c Oc 8a     3c 04 88 1c 04 88 3c Oc
+    fe c1 75 e8 e9 5c 00 00     00 89 e3 81 c3 04 00 00
+    00 5c 58 3d 41 41 41 41     75 43 58 3d 42 42 42 42
+    75 3b 5a 89 d1 89 e6 89     df 29 cf f3 a4 89 de 89
+    d1 89 df 29 cf 31 c0 31     db 31 d2 fe c0 02 1c 06
+    8a 14 06 8a 34 1e 88 34     06 88 14 1e 00 f2 30 f6
+    8a 1c 16 8a 17 30 da 88     17 47 49 75 de 31 db 89
     d8 fe CO cd 80 90 90 e8     9d ff ff Of 41 41 41 41
 
 [Link to Part 2 of 3](http://www.canyoucrackit.co.uk/15b436de1f9107f3778aad525e5d0b20.js)
@@ -39,25 +39,25 @@ The contender: [_Can you crack it?](http://canyoucrackit.co.uk/)
     //   other javascript implementations may or may not work.
     //
     //--------------------------------------------------------------------------------------------------
-    
+
     var VM = {
-      
+
       cpu: {
         ip: 0x00,
-        
+
         r0: 0x00,
         r1: 0x00,
         r2: 0x00,
         r3: 0x00,
-        
+
         cs: 0x00,
         ds: 0x10,
-        
+
         fl: 0x00,
-        
+
         firmware: [0xd2ab1f05, 0xda13f110]
       },
-      
+
       mem: [
         0x31, 0x04, 0x33, 0xaa, 0x40, 0x02, 0x80, 0x03, 0x52, 0x00, 0x72, 0x01, 0x73, 0x01, 0xb2, 0x50,
         0x30, 0x14, 0xc0, 0x01, 0x80, 0x00, 0x10, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -75,7 +75,7 @@ The contender: [_Can you crack it?](http://canyoucrackit.co.uk/)
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-        
+
         0x98, 0xab, 0xd9, 0xa1, 0x9f, 0xa7, 0x83, 0x83, 0xf2, 0xb1, 0x34, 0xb6, 0xe4, 0xb7, 0xca, 0xb8,
         0xc9, 0xb8, 0x0e, 0xbd, 0x7d, 0x0f, 0xc0, 0xf1, 0xd9, 0x03, 0xc5, 0x3a, 0xc6, 0xc7, 0xc8, 0xc9,
         0xca, 0xcb, 0xcc, 0xcd, 0xce, 0xcf, 0xd0, 0xd1, 0xd2, 0xd3, 0xd4, 0xd5, 0xd6, 0xd7, 0xd8, 0xd9,
@@ -92,7 +92,7 @@ The contender: [_Can you crack it?](http://canyoucrackit.co.uk/)
         0x01, 0x51, 0x59, 0x5f, 0x56, 0x13, 0x10, 0x43, 0x19, 0x18, 0xe5, 0xe0, 0xbe, 0xbf, 0xbd, 0xe9,
         0xf0, 0xf1, 0xf9, 0xfa, 0xab, 0x8f, 0xc1, 0xdf, 0xcf, 0x8d, 0xf8, 0xe7, 0xe2, 0xe9, 0x93, 0x8e,
         0xec, 0xf5, 0xc8, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-        
+
         0x37, 0x7a, 0x07, 0x11, 0x1f, 0x1d, 0x68, 0x25, 0x32, 0x77, 0x1e, 0x62, 0x23, 0x5b, 0x47, 0x55,
         0x53, 0x30, 0x11, 0x42, 0xf6, 0xf1, 0xb1, 0xe6, 0xc3, 0xcc, 0xf8, 0xc5, 0xe4, 0xcc, 0xc0, 0xd3,
         0x85, 0xfd, 0x9a, 0xe3, 0xe6, 0x81, 0xb5, 0xbb, 0xd7, 0xcd, 0x87, 0xa3, 0xd3, 0x6b, 0x36, 0x6f,
@@ -110,7 +110,7 @@ The contender: [_Can you crack it?](http://canyoucrackit.co.uk/)
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ],
-      
+
       exec: function()
       {
         // virtual machine architecture
@@ -127,8 +127,8 @@ The contender: [_Can you crack it?](http://canyoucrackit.co.uk/)
         //
         //           byte 1               byte 2 (optional)
         // bits      [ 7 6 5 4 3 2 1 0 ]  [ 7 6 5 4 3 2 1 0 ]
-        // opcode      - - -             
-        // mod               -           
+        // opcode      - - -
+        // mod               -
         // operand1            - - - -
         // operand2                         - - - - - - - -
         //
@@ -140,41 +140,41 @@ The contender: [_Can you crack it?](http://canyoucrackit.co.uk/)
         //
         // instruction set
         // +++++++++++++++
-        // 
+        //
         // Notes:
         //   * r1, r2 => operand 1 is register 1, operand 2 is register 2
         //   * movr r1, r2 => move contents of register r2 into register r1
-        // 
+        //
         // opcode | instruction | operands (mod 0) | operands (mod 1)
         // -------+-------------+------------------+-----------------
         // 0x00   | jmp         | r1               | r2:r1
-        // 0x01   | movr        | r1, r2           | rx,   imm 
+        // 0x01   | movr        | r1, r2           | rx,   imm
         // 0x02   | movm        | r1, [ds:r2]      | [ds:r1], r2
         // 0x03   | add         | r1, r2           | r1,   imm
-        // 0x04   | xor         | r1, r2           | r1,   imm 
-        // 0x05   | cmp         | r1, r2           | r1,   imm 
+        // 0x04   | xor         | r1, r2           | r1,   imm
+        // 0x05   | cmp         | r1, r2           | r1,   imm
         // 0x06   | jmpe        | r1               | r2:r1
         // 0x07   | hlt         | N/A              | N/A
         //
         // flags
         // +++++
-        // 
+        //
         // cmp r1, r2 instruction results in:
         //   r1 == r2 => fl = 0
         //   r1 < r2  => fl = 0xff
         //   r1 > r2  => fl = 1
-        // 
+        //
         // jmpe r1
         //   => if (fl == 0) jmp r1
         //      else nop
-        
+
         throw "VM.exec not yet implemented";
       }
-      
+
     };
-    
+
     //--------------------------------------------------------------------------------------------------
-    
+
     try
     {
       VM.exec();
@@ -194,5 +194,5 @@ And the result is: [So You Did It!](http://www.canyoucrackit.co.uk/soyoudidit.as
     Salary  £25,446 (GC10) £31,152 (GC9)
     Discipline  Cyber
     Grade   GC10/GC9
-     
-    Closing date for applications is 12 December 2011 
+
+    Closing date for applications is 12 December 2011

@@ -33,7 +33,7 @@ a {
   color: #e33f3a;
   text-decoration: none;
   line-height: inherit;
-  font-weight: inherit; 
+  font-weight: inherit;
 }
 
 
@@ -43,7 +43,7 @@ a:hover {
 
 a:visited {
     color: #00438a;
-}    
+}
 
 table {
   font-size: inherit;
@@ -79,7 +79,7 @@ ul.posts {
 }
 
 .title {
-  font-size: 125%;  
+  font-size: 125%;
   color:  #e33f3a; /* #a00; */
   font-weight: bold;
   margin-bottom: 2em;
@@ -127,7 +127,7 @@ ul.posts {
 
       .site .footer .contact a:hover {
         color: #00438a;
-      }  
+      }
 
 /* Posts */
 
@@ -191,11 +191,11 @@ ul.posts {
       padding: 0 0 0 15px;
       margin: 0 0 20px;
       border-left: 5px solid #eeeeee;
-  }    
+  }
 
 #post small {
       font-size: 85%;
-  }  
+  }
 #post abbr[title],
       abbr[data-original-title] {
       cursor: help;
