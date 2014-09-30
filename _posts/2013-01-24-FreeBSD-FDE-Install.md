@@ -12,7 +12,10 @@ Introduction
 We will be using [GELI](https://en.wikipedia.org/wiki/Geli_%28software%29) as
 the encryption and [UFS](https://en.wikipedia.org/wiki/Unix_File_System) as the
 file system, all inside a 64GB <abbr title="Solid-state drive">SSD</abbr>.
-Please note that when I say full disk encryption it means everything except the /boot partition. For this article and in my case you'll be using the **/dev/ada0** disk. Two partitions; a 10G /boot and the rest of the disk as **/**. Why no swap you ask? In most recent machines there is enough RAM to not need any, top that with using a <abbr title="Solid-state drive">SSD</abbr> and it is an easier choice to make.
+Please note that when I say full disk encryption it means everything except the
+/boot partition. For this article and in my case you'll be using the
+**/dev/ada0** disk. Two partitions; a 10G /boot and the rest of the disk as
+**/**.
 
 Take a look at the [Release notes](http://www.freebsd.org/releases/9.1R/announce.html), [Handbook](http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/), [Wiki](https://wiki.freebsd.org/), and [Forums](http://forums.freebsd.org/) for more information regarding FreeBSD. I also suggest taking a glance at the following man pages ( [tunefs](http://www.freebsd.org/cgi/man.cgi?query=tunefs&apropos=0&sektion=0&manpath=FreeBSD%2B9.0-RELEASE&arch=default&format=ascii), [newfs](http://www.freebsd.org/cgi/man.cgi?query=newfs&apropos=0&sektion=0&manpath=FreeBSD%2B9.0-RELEASE&arch=default&format=ascii), [geli](http://www.freebsd.org/cgi/man.cgi?query=geli&apropos=0&sektion=0&manpath=FreeBSD%2B9.0-RELEASE&arch=default&format=ascii), [gpart](http://www.freebsd.org/cgi/man.cgi?query=gpart&apropos=0&sektion=0&manpath=FreeBSD%2B9.0-RELEASE&arch=default&format=ascii) ) for the commands we will be using, just in case there is something extra your system/setup requires.
 
