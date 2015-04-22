@@ -10,13 +10,13 @@ title: Battery life, Thinkpad x230, and Arch Linux
 Introduction
 
 Ever since buying a Thinkpad x230 some years ago, I have neglected tweaking and
-monitoring its power usage. Mostly thanks to having it plugged in.The laptop
-itself has gone through a couple of operating systems including; OpenBSD,
-FreeBSD, Ubuntu, and Arch Linux for now. To begin the journey of power saving
-via Arch Linux, here is some info regarding the current battery.
+monitoring its power usage. Mostly thanks to having it plugged in while in use.
+The laptop itself has gone through a couple of operating systems including;
+OpenBSD, FreeBSD, Ubuntu and finally, Arch Linux. To begin the journey of power
+saving via Arch Linux, here is some info regarding the current battery.
 
     $ acpi -V
-    Battery 0: Discharging, 97%, **03:33:17** remaining
+    Battery 0: Discharging, 97%, 03:33:17 remaining
     Battery 0: design capacity 4791 mAh, last full capacity 3081 mAh = 64%
     Adapter 0: off-line
     Thermal 0: ok, 40.0 degrees C
@@ -28,12 +28,12 @@ via Arch Linux, here is some info regarding the current battery.
     Cooling 4: Processor 0 of 10
     Cooling 5: Processor 0 of 10
 
-Turning On Audio Power Saving
+Turning On Audio Power Saving:
 
     $ sudo vim /etc/modprobe.d/audio_powersave.conf
     options snd_hda_intel power_save=1
 
-Turning Off Bluetooth via udev rules
+Turning Off Bluetooth via udev rules:
 
     $ sudo vim /etc/udev/rules.d/50-bluetooth.rules
     SUBSYSTEM=="rfkill", ATTR{type}=="bluetooth", ATTR{state}="0"
@@ -43,13 +43,13 @@ Disabling The <abbr title="Non-maskable interrupt">NMI</abbr> watchdog
     $ sudo vim /etc/sysctl.d/disable_watchdog.conf
     kernel.nmi_watchdog = 0
 
-Set Kernel at Laptop Mode 5
+Enable the Laptop Mode Parameter in the kernel:
     
     $ sudo vim /etc/sysctl.d/laptop.conf
     vm.laptop_mode = 5
 
 
-Disable Wake-on-LAN
+Disable Wake-on-LAN:
     
     # Show the interfaces
     $ ip link show 
@@ -58,7 +58,7 @@ Disable Wake-on-LAN
     $ sudo vim /etc/udev/rules.d/70-disable_wol.rules
     ACTION=="add", SUBSYSTEM=="net", KERNEL=="**enp0s25**", RUN+="/usr/bin/ethtool -s %k wol d"
 
-Install and enable laptop-mode-tools
+Install and enable laptop-mode-tools:
 
     $ curl -O https://aur.archlinux.org/packages/la/laptop-mode-tools/laptop-mode-tools.tar.gz
     $ tar -zxf laptop-mode-tools.tar.gz
@@ -69,7 +69,7 @@ Install and enable laptop-mode-tools
 The final result:
 
     $ acpi -V
-    Battery 0: Discharging, 98%, **05:14:50** remaining
+    Battery 0: Discharging, 98%, 05:14:50 remaining
     Battery 0: design capacity 4748 mAh, last full capacity 3053 mAh = 64%
     Adapter 0: off-line
     Thermal 0: ok, 45.0 degrees C
