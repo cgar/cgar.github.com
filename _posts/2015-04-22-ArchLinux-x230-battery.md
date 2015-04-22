@@ -38,7 +38,7 @@ Turning Off Bluetooth via udev rules:
     $ sudo vim /etc/udev/rules.d/50-bluetooth.rules
     SUBSYSTEM=="rfkill", ATTR{type}=="bluetooth", ATTR{state}="0"
 
-Disabling The <abbr title="Non-maskable interrupt">NMI</abbr> watchdog
+Disabling The <abbr title="Non-maskable interrupt">NMI</abbr> watchdog:
     
     $ sudo vim /etc/sysctl.d/disable_watchdog.conf
     kernel.nmi_watchdog = 0
