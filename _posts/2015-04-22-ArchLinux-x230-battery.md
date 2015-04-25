@@ -81,4 +81,4 @@ The final result:
     Cooling 4: Processor 0 of 10
     Cooling 5: Processor 0 of 10
 
-Source: [1](https://wiki.archlinux.org/index.php/Power_management/Energy_saving).
+Source: [1](https://wiki.archlinux.org/index.php?title=Power_management).
