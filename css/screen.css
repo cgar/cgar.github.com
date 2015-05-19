@@ -5,13 +5,12 @@
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-}
+/* html, body { */
+/*   height: 100%; */
+/* } */
 
 body {
   background-color: white;
-  /* font: 14.5px "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-family: "Open Sans", sans-serif;
   text-align: center;
   font-size: 14.5px;
@@ -63,7 +62,6 @@ ul.posts {
 
   ul.posts span {
     color: #aaa;
-   /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
     font-family: "Open Sans", sans-serif;
     font-size: 85%;
   }
@@ -75,7 +73,7 @@ ul.posts {
   text-align: justify;
   width: 40em;
   margin: 3em auto 2em auto;
-  line-height: 1.5em;
+  line-height: 1.6em;
 }
 
 .title {
