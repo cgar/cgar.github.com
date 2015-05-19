@@ -11,6 +11,7 @@ html, body {
 
 body {
   background-color: white;
+  /* font: 14.5px "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-family: "Open Sans", sans-serif;
   text-align: center;
   font-size: 14.5px;
@@ -57,7 +58,7 @@ ul.posts {
 }
 
   ul.posts li {
-    line-height: 1.6em;
+    line-height: 1.75em;
   }
 
   ul.posts span {
@@ -72,9 +73,9 @@ ul.posts {
 .site {
   font-size: 110%;
   text-align: justify;
-  max-width: 650px;
-  margin: 40px auto;
-  line-height: 1.6em;
+  width: 40em;
+  margin: 3em auto 2em auto;
+  line-height: 1.5em;
 }
 
 .title {
@@ -165,7 +166,7 @@ ul.posts {
     display: block;
     padding: 8.5px;
     margin: 0 0 18px;
-    line-height: 1.6em;
+    line-height: 18px;
     font-size: 12px;
     border: 1px solid #ccc;
     border: 1px solid rgba(0, 0, 0, 0.15);
