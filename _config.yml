@@ -1,4 +1,4 @@
-markdown: rdiscount
+markdown: kramdown
 pygments: false
 permalink: /posts/:title.html
 highlighter: rouge
