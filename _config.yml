@@ -1,3 +1,4 @@
 markdown: rdiscount
-pygments: true
+pygments: false
 permalink: /posts/:title.html
+highlighter: rouge
