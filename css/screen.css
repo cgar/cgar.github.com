@@ -1,6 +1,9 @@
 /* Global Reset */
-@import "reset";
-@import "config";
+
+* {
+  margin: 0;
+  padding: 0;
+}
 
 html, body {
   height: 100%;
