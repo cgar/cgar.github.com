@@ -55,13 +55,9 @@ table {
 ul.posts {
   list-style-type: none;
   margin-bottom: 2em;
-  @media screen and (max-width: $br) { padding: 10px 0 10px 0;
-  }
 
   ul.posts li {
     line-height: 1.75em;
-    @media screen and (max-width: $br) { padding: 10px 0 10px 0;
-    }
 
   ul.posts span {
     color: #aaa;
@@ -77,16 +73,12 @@ ul.posts {
   width: 40em;
   margin: 3em auto 2em auto;
   line-height: 1.6em;
-  @media screen and (max-width: $br) { padding: 10px 0 10px 0;
-  }
 
 .title {
   font-size: 125%;
   color:  #e33f3a; /* #a00; */
   font-weight: bold;
   margin-bottom: 2em;
-  @media screen and (max-width: $br) { padding: 10px 0 10px 0;
-  }
 }
 
   .site .title a {
@@ -118,8 +110,6 @@ ul.posts {
     border-top: 4px solid #eee;
     margin-top: 2em;
     overflow: hidden;
-    @media screen and (max-width: $br) { padding: 10px 0 10px 0;
-    }
   }
 
     .site .footer .contact {
@@ -162,8 +152,6 @@ ul.posts {
     padding: 0 3px 2px;
     font-size: 13px;
     border-radius: 3px;
-    @media screen and (max-width: $br) { padding: 10px 0 10px 0;
-    }
     }
 #post code {
     color: rgba(0, 0, 0, 0.75);
@@ -188,8 +176,6 @@ ul.posts {
       padding: 0 0 0 15px;
       margin: 0 0 20px;
       border-left: 5px solid #eeeeee;
-      @media screen and (max-width: $br) { padding: 10px 0 10px 0;
-      }
   }
 
 #post small {
