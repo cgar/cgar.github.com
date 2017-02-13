@@ -7,7 +7,7 @@
 body {
 	color: $color-black;
 	background: $color-white;
-	font-family: 'Inconsolata', ;
+  font-family: "Open Sans", sans-serif;
 	font-size: 100%;
 	font-weight: 400;
 }
@@ -43,14 +43,6 @@ ul {
 			padding: 10px 0 10px 0;
 		}
 	}
-}
-blockquote {
-  color: $color-black;
-  border-left: 4px solid $color-black;
-  padding-left: 15px;
-  font-size: 18px;
-  letter-spacing: -1px;
-  font-style: italic;
 }
 
 .wrapper {
@@ -195,31 +187,46 @@ blockquote {
 				margin: auto;
 			}
 		}
-		code {
-			padding: 3px;
-			font-size: 0.9em;
+		/* Blocks of code  */
+
+		#post code, pre {
+			padding: 0 3px 2px;
+			font-size: 13px;
 			border-radius: 3px;
-			background: $color-grey;
-		}
-		.highlight {
-			margin: 10px;
-			margin-bottom: 15px;
-			padding: 10px;
-			line-height: 1.5;
-			border-radius: 3px;
-			background: $color-black;
-			code {
-				color: $color-code;
-				background: none;
 			}
+		#post code {
+			color: rgba(0, 0, 0, 0.75);
+			padding: 1px 3px;
+			}
+		#post pre {
+			background-color: #f5f5f5;
+			display: block;
+			padding: 8.5px;
+			margin: 0 0 18px;
+			line-height: 18px;
+			font-size: 12px;
+			border: 1px solid #ccc;
+			border: 1px solid rgba(0, 0, 0, 0.15);
+			border-radius: 3px;
+			white-space: pre;
+			white-space: pre-wrap;
+			word-wrap: break-word;
+			}
+
+		#post blockquote {
+			padding: 0 0 0 15px;
+			margin: 0 0 20px;
+			border-left: 5px solid #eeeeee;
 		}
-		.codebreak {
-			margin: 15px;
-			border: 0;
-			border-bottom: 1px dashed $color-black;
+
+		#post small {
+			font-size: 85%;
 		}
-	}
-}
+		#post abbr[title],
+			abbr[data-original-title] {
+			cursor: help;
+			border-bottom: 1px dotted #999999;
+		}
 
 .about {
 	&__title {
