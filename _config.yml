@@ -1,4 +1,10 @@
+# Markdown
 markdown: kramdown
 pygments: false
 permalink: /posts/:title.html
 highlighter: rouge
+
+# Sass
+sass:
+  style: :compressed
+sass_dir: _sass
