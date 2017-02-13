@@ -1,24 +1,27 @@
 ---
-layout: default
+layout: layout
+title: Carlos E. Garcia
 ---
 
-<div class="header">
-    <h1>{{ site.name }}</h1>
-    <ul>
-        {% for item in site.data.navigation %}
-        <li>
-            <a href="{{ item.url }}">{{ item.title }}</a>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
-<div class="blog">
-    <h1>Blog Posts:</h1>
-    <ul>
-        {% for post in site.posts %}
-        <li>
-            <span class="date">{{ post.date | date: '%Y %b %d' }}</span> - <a href="{{ post.url }}">{{ post.title }}</a>
-        </li>
-        {% endfor %}
-    </ul>
+<div id="home">
+  <h1>Blog Posts</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <h1>Links of Interest</h1>
+  <ul class="posts">
+      <li> <span>08 Dec 2016</span> &raquo; <a
+              href="https://www.nas.nasa.gov/SC16/demos/demo9.html">Building Cost-Effective 100-Gbps Firewalls for HPC</a></li>
+  </ul>
+
+  <h1>Videos of Interest</h1>
+  <ul class="posts">
+      <li><span>01 Apr 2014</span> &raquo; <a href="https://vimeo.com/88829079">Slow Life</a></li>
+      <li><span>19 Jan 2012</span> &raquo; <a href="https://www.youtube.com/watch?v=5XDTQLa3NjE">Karen Sandler's linux.conf.au keynote</a></li>
+
+
+  </ul>
 </div>
