@@ -7,7 +7,7 @@
 body {
 	color: $color-black;
 	background: $color-white;
-  font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", sans-serif;
 	font-size: 100%;
 	font-weight: 400;
 }
@@ -189,28 +189,11 @@ ul {
 		}
 		/* Blocks of code  */
 
-		#post code, pre {
+		#post code {
 			padding: 0 3px 2px;
 			font-size: 13px;
 			border-radius: 3px;
-			}
-		#post code {
 			color: rgba(0, 0, 0, 0.75);
-			padding: 1px 3px;
-			}
-		#post pre {
-			background-color: #f5f5f5;
-			display: block;
-			padding: 8.5px;
-			margin: 0 0 18px;
-			line-height: 18px;
-			font-size: 12px;
-			border: 1px solid #ccc;
-			border: 1px solid rgba(0, 0, 0, 0.15);
-			border-radius: 3px;
-			white-space: pre;
-			white-space: pre-wrap;
-			word-wrap: break-word;
 			}
 
 		#post blockquote {
