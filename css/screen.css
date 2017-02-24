@@ -55,9 +55,11 @@ table {
 ul.posts {
   list-style-type: none;
   margin-bottom: 2em;
+}
 
   ul.posts li {
     line-height: 1.75em;
+  }
 
   ul.posts span {
     color: #aaa;
@@ -73,6 +75,7 @@ ul.posts {
   width: 40em;
   margin: 3em auto 2em auto;
   line-height: 1.6em;
+}
 
 .title {
   font-size: 125%;
