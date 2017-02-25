@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Battery life, Thinkpad x230, and Arch Linux</title>
+<meta name="author" content="Carlos E. Garcia" />
+<link rel="shortcut icon" href="/favicon.ico">
+<link type="text/plain" rel="author" href="/humans.txt" />
+
+<style>
+body {
+  background-color: white;
+  margin:1em auto;
+	max-width:40em;
+	padding:0 .62em;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14.5px;
+}
+
+a {
+  color: #1A0DAB;
+  text-decoration: none;
+  &:visited {
+	color: #1A0DAB;
+	text-decoration: none;
+  }
+  &:hover {
+	 background-color: #EEEEEE;
+	 text-decoration: none;
+  }
+  &:active {
+	color: #1A0DAB;
+	text-decoration: none;
+  }
+}
+
+@media print {
+	body{
+		max-width:none
+	}
+}
+</style>
+
+<article>
+<header><a href="/"><h1>Carlos E. Garcia</h1></a></header>
+
+<p>Full Disk Encryption In FreeBSD 9.1
+
+<p> 24 Jan 2013
+
+<p>Introduction
+
+<p>We will be using <a href="https://en.wikipedia.org/wiki/Geli_%28software%29">GELI</a> as
+the encryption and <a href="https://en.wikipedia.org/wiki/Unix_File_System">UFS</a> as the
+file system, all inside a 64GB <abbr title="Solid-state drive">SSD</abbr>.
+Please note that when I say full disk encryption it means everything except the
+/boot partition. For this article and in my case you’ll be using the
+<strong>/dev/ada0</strong> disk. Two partitions; a 10G /boot and the rest of the disk as
+<strong>/</strong>.
+
+<p>Take a look at the <a href="http://www.freebsd.org/releases/9.1R/announce.html">Release notes</a>, 
+<a href="http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/">Handbook</a>,
+<a href="https://wiki.freebsd.org/">Wiki</a>, and <a href="http://forums.freebsd.org/">Forums</a>
+for more information regarding FreeBSD. I also suggest taking a glance at the following man pages 
+( <a href="http://www.freebsd.org/cgi/man.cgi?query=tunefs&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD%2B9.0-RELEASE&amp;arch=default&amp;format=ascii">tunefs</a>,
+<a href="http://www.freebsd.org/cgi/man.cgi?query=newfs&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD%2B9.0-RELEASE&amp;arch=default&amp;format=ascii">newfs</a>,
+<a href="http://www.freebsd.org/cgi/man.cgi?query=geli&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD%2B9.0-RELEASE&amp;arch=default&amp;format=ascii">geli</a>,
+<a href="http://www.freebsd.org/cgi/man.cgi?query=gpart&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD%2B9.0-RELEASE&amp;arch=default&amp;format=ascii">gpart</a> )
+for the commands we will be using, just in case there is something extra your system/setup requires.
+
+<p>Procedure
+
+<p><a href="http://www.freebsd.org/where.html">Download</a>,
+<a href="http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/bsdinstall-pre.html">prepare the installation media</a>,
+then boot into it. The next few steps are really straight forward and the handbook does a pretty good job explaining its options.
+In the “Welcome” menu choose “Install”, choose your keyboard layout, then type in your hostname; <em>pcname.localhost.home</em>
+or something resembling that format. Choose the optional system components as you wish,
+the default options are fine. Finally, when it comes to the “Partitioning”, select “Shell”.
+Inside the shell you’ll be typing the commands below.
+
+<p>Partitioning
+
+<pre>
+# gpart show
+# gpart destroy -F ada0
+# gpart create -s gpt ada0
+# gpart add -s 128 -t freebsd-boot ada0
+# gpart add -s 10G -t freebsd-ufs ada0
+# gpart add -t freebsd-ufs ada0
+# gpart bootcode -b /boot/pmbr -p /boot/gptboot -i 1 ada0
+# newfs -E -t -U -m 0 -j /dev/ada0p2
+# geli init -bl 256 /dev/ada0p3
+# set your password # geli attach /dev/ada0p3
+# newfs -E -t -U -m 0 -j /dev/ada0p3.eli
+# mount /dev/ada0p3.eli /mnt
+# mkdir /mnt/bootdir
+# mount /dev/ada0p2 /mnt/bootdir
+# exit
+</pre>
+
+<p>Most of the difficult parts are completed, now we just wait for bsdinstall
+ to extract and install the base, kernel, ports, etc. After this step, you will
+ be asked for a root password, network configuration, among other things. 
+ On the “Final Configuration” window, select “Exit” and wait for the next
+ screen, it may take a while depending on your system specifications.
+ Select “Yes” on “Manual Configuration”. The following few steps are very
+ important, we want to make sure the /boot partition is linked to the right
+ place and the configuration files to be right.
+
+<pre>
+# mv boot bootdir/
+# ln -fs bootdir/boot
+</pre>
+
+<p>Edit the file “/boot/loader.conf” and enter the following, please make
+sure to find out if your processor supports
+<abbr title="Advanced Encryption Standard (AES) Instruction Set">AES-NI</abbr>.
+Newer Intel and AMD processors support this. If yours do not,
+remove the second line shown below.
+<pre>
+vfs.root.mountfrom=”ufs:/dev/ada0p3.eli”
+aesni_load=”YES”
+geom_eli_load=”YES”
+</pre>
+
+<p>Edit the file “/etc/fstab” and enter the following:
+<pre>
+# Device    Mountpoint    FStype    Options    Dump    Pass
+/dev/ada0p3.eli   /  ufs  rw  0  0
+/dev/ada0p2   /bootdir  ufs  rw  1  1
+</pre>
+
+<p>After you save the above file and exit, type in the command line:
+
+<pre># exit</pre>
+
+<p>Select “Reboot”. Make sure to boot from your hard drive instead of the
+  install media. And we are finished, after you log into your system,
+  type the following commands to make sure that trim is enabled.
+  Although FreeBSD is now installed, there is much more to be done,
+  including the installation of Xorg, your favorite
+  <abbr title="Desktop Environment">DE</abbr>, <abbr title="Window Manager">WM</abbr>
+  or office suite. For those questions, the FreeBSD handbook and forum are the place to go.
+
+<pre>
+# tunefs -p /dev/ada0p2
+# tunefs -p /dev/ada0p3
+</pre>
+
+<p>Sources: <a href="http://namor.userpage.fu-berlin.de/howto_fbsd9_encrypted_ufs.html">1</a>
+and <a href="https://www.dan.me.uk/blog/2012/05/05/full-disk-encryption-in-freebsd-9-x-well-almost/">2</a>.
+
+<footer>
+<a href="/">Home</a> &nbsp;
+<a href="mailto:carlos@cgarcia.org">Email</a> &nbsp;
+<a href="https://github.com/cgar">GitHub</a> &nbsp;
+<a href="IRC://irc.freenode.net:cgar">IRC Freenode</a>
+</footer>
+</article>

@@ -1,27 +1,70 @@
----
-layout: layout
-title: Carlos E. Garcia
----
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carlos E. Garcia</title>
+<meta name="author" content="Carlos E. Garcia" />
+<link rel="shortcut icon" href="/favicon.ico">
+<link type="text/plain" rel="author" href="/humans.txt" />
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+<style>
+body {
+  background-color: white;
+  margin:1em auto;
+	max-width:40em;
+	padding:0 .62em;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14.5px;
+}
 
-  <h1>Links of Interest</h1>
-  <ul class="posts">
-      <li> <span>08 Dec 2016</span> &raquo; <a
-              href="https://www.nas.nasa.gov/SC16/demos/demo9.html">Building Cost-Effective 100-Gbps Firewalls for HPC</a></li>
-  </ul>
+a {
+  color: #1A0DAB;
+  text-decoration: none;
+  &:visited {
+	color: #1A0DAB;
+	text-decoration: none;
+  }
+  &:hover {
+	 background-color: #EEEEEE;
+	 text-decoration: none;
+  }
+  &:active {
+	color: #1A0DAB;
+	text-decoration: none;
+  }
+}
 
-  <h1>Videos of Interest</h1>
-  <ul class="posts">
-      <li><span>01 Apr 2014</span> &raquo; <a href="https://vimeo.com/88829079">Slow Life</a></li>
-      <li><span>19 Jan 2012</span> &raquo; <a href="https://www.youtube.com/watch?v=5XDTQLa3NjE">Karen Sandler's linux.conf.au keynote</a></li>
+@media print {
+	body{
+		max-width:none
+	}
+}
+</style>
 
+<article>
+<header><a href="/"><h2>Carlos E. Garcia</h2></a></header>
 
-  </ul>
-</div>
+<h4>Blog Posts</h4>
+<ul>
+  <li><em>22 Apr 2015</em> &raquo; <a href="/posts/ArchLinux-x230-battery.html">Battery life, Thinkpad x230, and Arch Linux</a>
+  <li><em>24 Jan 2013</em> &raquo; <a href="/posts/FreeBSD-FDE-Install.html">Full Disk Encryption In FreeBSD 9.1</a>
+</ul>
+
+<h4>Links of Interest</h4>
+<ul>
+  <li><em>08 Dec 2016</em> &raquo; <a href="https://www.nas.nasa.gov/SC16/demos/demo9.html">Building Cost-Effective 100-Gbps Firewalls for HPC</a>
+</ul>
+
+<h4>Videos of Interest</h4>
+<ul>
+  <li><em>01 Apr 2014</em> &raquo; <a href="https://vimeo.com/88829079">Slow Life</a>
+  <li><em>19 Jan 2012</em> &raquo; <a href="https://www.youtube.com/watch?v=5XDTQLa3NjE">Karen Sandler's linux.conf.au keynote</a>
+</ul>
+
+<footer>
+<a href="/">Home</a> &nbsp;
+<a href="mailto:carlos@cgarcia.org">Email</a> &nbsp;
+<a href="https://github.com/cgar">GitHub</a> &nbsp;
+<a href="IRC://irc.freenode.net:cgar">IRC Freenode</a>
+</footer>
+</article>
