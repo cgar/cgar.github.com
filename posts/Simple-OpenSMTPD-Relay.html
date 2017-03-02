@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Simple Relay via OpenSMTPD</title>
+<meta name="author" content="Carlos E. Garcia" />
+<link rel="shortcut icon" href="/favicon.ico">
+<link type="text/plain" rel="author" href="/humans.txt" />
+
+<style>
+body {
+  background-color: white;
+  margin:1em auto;
+	max-width:40em;
+	padding:0 .62em;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14.5px;
+}
+
+a {
+  color: #1A0DAB;
+  text-decoration: none;
+  &:visited {
+	color: #1A0DAB;
+	text-decoration: none;
+  }
+  &:hover {
+	 background-color: #EEEEEE;
+	 text-decoration: none;
+  }
+  &:active {
+	color: #1A0DAB;
+	text-decoration: none;
+  }
+}
+
+@media print {
+	body{
+		max-width:none
+	}
+}
+</style>
+
+<article>
+<header><a href="/"><h1>Carlos E. Garcia</h1></a></header>
+
+<p> A simple relay via OpenSMTPD
+
+<p> <em>02 Mar 2017</em>
+
+<p> Using <a href="https://opensmtpd.org/">OpenSMTPD</a> as a relay
+through your favorite email service provider is quite an easy setup.
+The first step is to of course install OpenSMTPD and OpenSMTPD-extras.
+Do make sure to go through the
+<a href="https://opensmtpd.org/manual.html">manual pages</a>,
+quite informative and useful.
+
+<p> The second thing we will need are the credentials to the email
+service provider which are referenced under OpenSMTPD's configuration
+file. The credentials file <code>/etc/mail/secrets</code> holds the
+user name and password, along with a label of your choosing.
+<pre>label  user@domain.com:password</pre>
+
+The final step would be to edit OpenSMTPD's main configuration
+<em>smtpd.conf</em> file like so:
+<pre>
+# Table setup
+table aliases file:/etc/mail/aliases
+table passwd file:/etc/mail/secrets
+
+# To accept external mail, replace with: listen on all
+listen on lo0
+
+# Accept local messages
+accept for local alias <aliases> deliver to mbox
+
+# Relay
+accept for any relay via tls+auth://label@smtp.domain.com \
+        auth <passwd> as "user@domain.org"
+</pre>
+
+<p> To make sure there are no syntax issues in the configuration file,
+run the following command:
+<pre>
+$ smtpd -n
+configuration OK
+</pre>
+
+<p> You may check to make sure it is working through the terminal with
+the mail command:
+<pre>
+$ echo "Message" | mail -s "Subject" to@example.com
+</pre>
+
+<p>One last tip depending on your needs, do make sure the
+<a href="https://en.wikipedia.org/wiki/Gecos_field">GECOS</a> field is
+properly configured for your local account.
+
+<footer>
+<a href="/">Home</a> &nbsp;
+<a href="mailto:carlos@cgarcia.org">Email</a> &nbsp;
+<a href="https://github.com/cgar">GitHub</a> &nbsp;
+<a href="IRC://irc.freenode.net:cgar">IRC Freenode</a>
+</footer>
+</article>
